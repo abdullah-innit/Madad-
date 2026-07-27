@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Madad — Dashboard</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="brand"><a href="index.html" style="text-decoration:none;color:inherit">Madad</a></div>
+    <div class="nav-links">
+      <a href="dashboard.html" class="btn-text" style="text-decoration:underline">Dashboard</a>
+      <a href="my-requests.html" class="btn-text">My requests</a>
+      <span id="dashProfileLink"></span>
+      <span id="dashUserName" class="user-tag"></span>
+      <span id="dashUserPoints" class="points-tag"></span>
+      <button class="btn-text" id="dashLogoutBtn">Log out</button>
+    </div>
+  </nav>
+
+  <main class="dash-layout">
+
+    <section class="dash-form-panel">
+      <h2>Post a request</h2>
+      <p class="panel-sub">Tell people what needs doing. We'll grab your location automatically.</p>
+      <form id="postRequestForm">
+        <label>Title
+          <input type="text" id="reqTitle" placeholder="e.g. Unload saplings from truck" required>
+        </label>
+        <label>Description
+          <textarea id="reqDesc" rows="3" placeholder="What exactly needs to happen, and for how long?" required></textarea>
+        </label>
+        <label>People needed
+          <input type="number" id="reqPeopleNeeded" min="1" value="5" required>
+        </label>
+        <label>Points per volunteer
+          <input type="number" id="reqPoints" min="1" value="15" required>
+        </label>
+        <button type="button" class="btn-outline full" id="getLocationBtn">📍 Use my current location</button>
+        <p id="locationStatus" class="location-status"></p>
+        <button type="submit" class="btn-primary full">Post request</button>
+        <p class="form-error" id="postError"></p>
+      </form>
+    </section>
+
+    <section class="dash-browse-panel">
+      <h2>Nearby requests</h2>
+      <div id="map"></div>
+      <div id="requestsList" class="requests-list">
+        <p style="color:var(--gray);font-size:0.9rem">Loading nearby requests...</p>
+      </div>
+    </section>
+
+  </main>
+
+  <script type="module" src="js/api-config.js"></script>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script type="module" src="js/requests.js"></script>
+</body>
+</html>

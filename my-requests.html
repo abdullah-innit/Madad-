@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Madad — My Requests</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/dashboard.css">
+<link rel="stylesheet" href="css/my-requests.css">
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="brand"><a href="index.html" style="text-decoration:none;color:inherit">Madad</a></div>
+    <div class="nav-links">
+      <a href="dashboard.html" class="btn-text">Dashboard</a>
+      <a href="my-requests.html" class="btn-text" style="text-decoration:underline">My requests</a>
+      <span id="navProfileLink"></span>
+      <button class="btn-text" id="logoutBtn">Log out</button>
+    </div>
+  </nav>
+
+  <main class="my-requests-main">
+    <h1>Requests you've posted</h1>
+    <p class="page-sub">Mark who actually showed up. Only confirmed volunteers earn social points.</p>
+    <div id="myRequestsList">
+      <p style="color:var(--gray);font-size:0.9rem">Loading your requests...</p>
+    </div>
+  </main>
+
+  <script type="module" src="js/api-config.js"></script>
+  <script type="module" src="js/my-requests.js"></script>
+</body>
+</html>
