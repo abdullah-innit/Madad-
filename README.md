@@ -1,45 +1,47 @@
-# Madad — Day 1 Setup
+# Madad-App
 
-Do these steps in order. Don't skip ahead — each one unlocks the next.
+A responsive community-driven volunteer platform built for the **Code With Affaq Coding Challenge #1** (#BuildWithAffaq) that connects people who need assistance with local volunteers, tracking social impact points, request statuses, and community contributions in real time.
 
-## 1. Open the project in VS Code
-- Open VS Code → File > Open Folder → select the `madad-app` folder.
 
-## 2. Install the Live Server extension
-- Click the Extensions icon in the left sidebar (or Ctrl+Shift+X).
-- Search "Live Server" (by Ritwick Dey). Click Install.
-- Right-click `index.html` in the file explorer → "Open with Live Server".
-- Your browser opens the page. Right now signup/login will show a Firebase error — that's expected, you haven't connected your Firebase project yet. Fix that next.
+## 📌 About the Project
 
-## 3. Create your Firebase project (free, ~5 minutes)
-1. Go to https://console.firebase.google.com and sign in with any Google account.
-2. Click "Add project" → name it `madad-app` → you can turn off Google Analytics (not needed) → Create.
-3. Once created, click the `</>` icon on the project overview page to register a **web app**. Give it any nickname. Skip Firebase Hosting setup for now — click Continue, then Continue to console.
-4. Firebase will show you a code block with a `firebaseConfig` object. Copy the whole object.
-5. Open `js/firebase-config.js` in VS Code and paste your values in, replacing the placeholder `YOUR_...` strings.
+Madad-App bridges the gap between individuals and local community initiatives by allowing users to post requests for help (such as urban tree planting, tutoring, or technical assistance) and letting volunteers seamlessly sign up, coordinate, and track their social contribution points.
 
-## 4. Turn on Authentication
-1. In the left sidebar: Build > Authentication > Get started.
-2. Click "Email/Password" in the sign-in methods list → toggle Enable → Save.
+## ✨ Features
 
-## 5. Turn on Firestore (the database)
-1. In the left sidebar: Build > Firestore Database > Create database.
-2. Choose a location close to you, click Next.
-3. Select "Start in test mode" (fine for now — we'll lock it down before you deploy). Click Create.
+* Fully responsive design (mobile, tablet, desktop) optimized for cross-device usability
+* Secure user authentication and account management (Signup/Login with hashed security)
+* Interactive request board to post, browse, filter, and join community help tasks
+* Real-time backend synchronization using Google Apps Script and Google Sheets storage
+* Social impact tracking system with points per volunteer and attendance confirmation
 
-## 6. Test it
-- Go back to your browser tab (refresh if needed).
-- Click "Join as volunteer", fill the signup form, submit.
-- Go to your Firebase console → Firestore Database → you should see a `users` collection with your new document inside it. That's your first real user, in a real database, that you built.
+## 🛠️ Built With
 
-## What's already working after this
-- Sign up with name, email, password, locality → creates an account + a Firestore profile with `socialPoints: 0`.
-- Log in / log out.
-- A signed-in banner shows your name and current points.
+* HTML5
+* CSS3 (Custom responsive layouts and styles)
+* JavaScript (Vanilla ES6+)
+* Google Apps Script & Google Sheets API (Backend & Database)
 
-## What's next (Day 2)
-- The "Post a request" and "Browse requests" flow — the actual core feature.
-- I'll build that once you confirm signup/login is working on your end.
+## 🚀 Getting Started
 
-## If something breaks
-Copy the exact error message from your browser's console (press F12 → Console tab) and send it to me. Don't guess-fix it yourself yet — tell me what it says first.
+### Prerequisites
+
+Just a modern web browser, no heavy build tools required.
+
+### Run Locally
+
+```bash
+git clone https://github.com/YOUR_USERNAME/YOUR_REPO.git
+cd YOUR_REPO
+
+```
+
+Then simply open `index.html` in your browser or run it via a local server extension (like Live Server in VS Code).
+
+## 🙏 Acknowledgements
+
+Built as part of the **Code With Affaq Coding Challenge #1**, organized by **Affaq Khan**.
+
+## 📄 License
+
+This project is open source and available for learning purposes under the MIT License.
