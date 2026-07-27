@@ -1,0 +1,57 @@
+.profile-main {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem;
+}
+.profile-header {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 2rem;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+.profile-header h1 {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  color: var(--forest);
+}
+.profile-locality { color: var(--gray); margin-top: 0.25rem; }
+.profile-stats {
+  display: flex;
+  justify-content: center;
+  gap: 2.5rem;
+  margin-top: 1.5rem;
+}
+.stat-value {
+  font-family: var(--font-mono);
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: var(--gold);
+}
+.stat-label { font-size: 0.8rem; color: var(--gray); margin-top: 0.2rem; }
+
+.profile-section h2 {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  color: var(--forest);
+  margin-bottom: 1rem;
+}
+.comment-card {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 1.1rem 1.3rem;
+  margin-bottom: 0.9rem;
+}
+.comment-card p { color: var(--charcoal); }
+.comment-meta { font-size: 0.8rem; color: var(--gray); margin-top: 0.5rem; }
+.no-comments { color: var(--gray); font-size: 0.9rem; }
+
+@media (max-width: 500px) {
+  .profile-main { padding: 1.5rem 1rem; }
+  .profile-header { padding: 1.5rem 1rem; }
+  .profile-stats { gap: 1.25rem; flex-wrap: wrap; }
+  .stat-value { font-size: 1.4rem; }
+  .stat-label { font-size: 0.7rem; }
+}
