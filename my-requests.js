@@ -12,14 +12,13 @@ document.getElementById("logoutBtn").addEventListener("click", () => {
   window.location.href = "index.html";
 });
 
-let busy = false; // true while an action is mid-flight — pauses auto-refresh
+let busy = false; 
 
 async function loadMyRequests() {
   if (busy) return; // don't rebuild the list while an action is mid-flight
   const listEl = document.getElementById("myRequestsList");
 
-  // The whole list gets rebuilt from scratch on every refresh — so before we do that,
-  // grab anything the user has typed but not saved yet, and remember what was focused.
+
   const preservedValues = {};
   let focusedId = null;
   listEl.querySelectorAll(".comment-box input").forEach((inp) => {
