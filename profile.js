@@ -1,7 +1,5 @@
 import { apiGet, getCurrentUser, clearCurrentUser } from "./api.js";
 
-// The nav here should reflect the PERSON VIEWING the page, not the profile being shown —
-// those are two different uids whenever you're looking at someone else's profile.
 const viewer = getCurrentUser();
 if (viewer) {
   document.getElementById("navProfileLink").innerHTML =
@@ -27,7 +25,6 @@ if (!uid) {
 }
 
 async function loadProfile(uid) {
-  // All three of these are independent — no reason to wait for one before starting the next.
   const [user, comments, trust] = await Promise.all([
     apiGet({ action: "getUser", uid }),
     apiGet({ action: "getComments", uid }),
