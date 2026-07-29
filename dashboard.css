@@ -78,8 +78,7 @@
 .btn-join:disabled { background: var(--border); color: var(--gray); cursor: not-allowed; }
 
 @media (max-width: 860px) {
-  /* Sticky only makes sense in a side-by-side layout — once columns stack
-     vertically, a sticky form just pins itself over the screen while scrolling. */
+
   .dash-form-panel { position: static; }
   #map { height: 220px; }
   .dash-layout { padding: 1.25rem 1rem; gap: 1.25rem; }
