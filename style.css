@@ -20,7 +20,6 @@ body {
   line-height: 1.5;
 }
 
-/* Navbar */
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -39,7 +38,6 @@ body {
 .nav-links { display: flex; gap: 1rem; align-items: center; flex-wrap: wrap; justify-content: flex-end; }
 .nav-links a { text-decoration: none; color: inherit; }
 
-/* Buttons */
 .btn-primary {
   background: var(--forest);
   color: var(--cream);
@@ -73,7 +71,6 @@ body {
   cursor: pointer;
 }
 
-/* Hero */
 .hero {
   display: flex;
   gap: 3rem;
@@ -108,7 +105,6 @@ body {
 }
 .hero-actions { margin-top: 2rem; display: flex; gap: 1rem; flex-wrap: wrap; }
 
-/* Hero panel: live request card */
 .hero-panel { flex: 1 1 340px; }
 .panel-label {
   font-family: var(--font-mono);
@@ -138,7 +134,6 @@ body {
 .bar { background: var(--border); height: 6px; border-radius: 3px; margin-top: 0.4rem; overflow: hidden; }
 .fill { background: var(--gold); height: 100%; }
 
-/* Modal */
 .modal-overlay {
   display: none;
   position: fixed;
