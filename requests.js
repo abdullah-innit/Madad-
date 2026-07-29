@@ -13,8 +13,7 @@ document.getElementById("dashUserPoints").textContent = `${currentUser.socialPoi
 document.getElementById("dashProfileLink").innerHTML =
   `<a href="profile.html?uid=${currentUser.uid}" class="btn-text">My profile</a>`;
 
-// The localStorage copy is only accurate as of login time — refresh it from the
-// server so points earned since then actually show up.
+
 apiGet({ action: "getUser", uid: currentUser.uid }).then((fresh) => {
   if (fresh.error) return;
   currentUser.socialPoints = fresh.socialPoints;
@@ -28,15 +27,15 @@ document.getElementById("dashLogoutBtn").addEventListener("click", () => {
   window.location.href = "index.html";
 });
 
-// ---------- Map setup ----------
+//Map setup 
 const map = L.map("map").setView([33.6844, 73.0479], 11);
 L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
   attribution: "&copy; OpenStreetMap contributors"
 }).addTo(map);
 let markers = [];
-let busy = false; // true while a click's request is still in flight — pauses auto-refresh
+let busy = false; // true while a click's request is still in flight,  pauses auto-refresh
 
-// ---------- Geolocation ----------
+//Geolocation
 document.getElementById("getLocationBtn").addEventListener("click", () => {
   const status = document.getElementById("locationStatus");
   status.textContent = "Getting your location...";
@@ -54,7 +53,7 @@ document.getElementById("getLocationBtn").addEventListener("click", () => {
   );
 });
 
-// ---------- Post a request ----------
+// Post a request
 document.getElementById("postRequestForm").addEventListener("submit", async (e) => {
   e.preventDefault();
   const errorEl = document.getElementById("postError");
@@ -103,7 +102,6 @@ document.getElementById("postRequestForm").addEventListener("submit", async (e) 
   setTimeout(() => { errorEl.textContent = ""; errorEl.style.color = ""; }, 3000);
 });
 
-// ---------- Browse: fetch + render, with polling since there's no live listener ----------
 async function loadRequests() {
   const requests = await apiGet({ action: "getRequests" });
   if (requests.error) {
@@ -156,7 +154,7 @@ async function loadRequests() {
 }
 
 async function joinRequest(requestId, btn) {
-  if (busy) return; // already mid-action, ignore extra clicks
+  if (busy) return; 
   busy = true;
   btn.disabled = true;
   btn.textContent = "Joining...";
@@ -172,4 +170,4 @@ function escapeHtml(str) {
 }
 
 loadRequests();
-setInterval(() => { if (!busy) loadRequests(); }, 6000); // simple polling since Sheets has no real-time listener like Firestore did
+setInterval(() => { if (!busy) loadRequests(); }, 6000);
