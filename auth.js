@@ -1,6 +1,6 @@
 import { apiGet, apiPost, getCurrentUser, setCurrentUser, clearCurrentUser } from "./api.js";
 
-// ---------- Modal open/close ----------
+
 const overlay = document.getElementById("authOverlay");
 const openModal = () => overlay.classList.add("open");
 const closeModal = () => overlay.classList.remove("open");
@@ -12,7 +12,7 @@ document.getElementById("heroBrowseBtn").addEventListener("click", () => { showT
 document.getElementById("modalClose").addEventListener("click", closeModal);
 overlay.addEventListener("click", (e) => { if (e.target === overlay) closeModal(); });
 
-// ---------- Tab switching ----------
+
 const tabLogin = document.getElementById("tabLogin");
 const tabSignup = document.getElementById("tabSignup");
 const loginForm = document.getElementById("loginForm");
@@ -28,7 +28,6 @@ function showTab(which) {
 tabLogin.addEventListener("click", () => showTab("login"));
 tabSignup.addEventListener("click", () => showTab("signup"));
 
-// ---------- Signup ----------
 signupForm.addEventListener("submit", async (e) => {
   e.preventDefault();
   const errorEl = document.getElementById("signupError");
@@ -59,7 +58,7 @@ signupForm.addEventListener("submit", async (e) => {
   window.location.href = "dashboard.html";
 });
 
-// ---------- Login ----------
+
 loginForm.addEventListener("submit", async (e) => {
   e.preventDefault();
   const errorEl = document.getElementById("loginError");
@@ -88,19 +87,16 @@ loginForm.addEventListener("submit", async (e) => {
   window.location.href = "dashboard.html";
 });
 
-// ---------- Logout ----------
 document.getElementById("logoutBtn").addEventListener("click", () => {
   clearCurrentUser();
   window.location.reload();
 });
 
-// ---------- Show a REAL open request in the hero, not hardcoded demo data ----------
 async function loadHeroRequest() {
   const requests = await apiGet({ action: "getRequests" });
   if (requests.error) return;
 
-  // A "quality gate": exclude obvious junk/test entries (very short title or description) —
-  // real requests describing real work naturally have more than a couple of words.
+
   const candidates = requests.filter(
     (r) => r.status === "open" && r.title.trim().length >= 8 && r.description.trim().length >= 15
   );
@@ -110,8 +106,7 @@ async function loadHeroRequest() {
     return;
   }
 
-  // Prefer whichever has real volunteer engagement already — that's a stronger
-  // representation of the product working than an untouched fresh post.
+
   candidates.sort((a, b) => {
     const aVol = a.volunteerDetails ? a.volunteerDetails.length : 0;
     const bVol = b.volunteerDetails ? b.volunteerDetails.length : 0;
